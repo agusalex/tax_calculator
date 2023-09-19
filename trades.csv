@@ -1,0 +1,7 @@
+Symbol,amount,price,sell_or_buy
+RE4,9000,0.2176,buy
+RE4,-9000,0.2232,sell
+RE4,10000,0.2176,buy
+RE4,11000,0.1778,buy
+RE4,-5000,0.1879,sell
+RE4,-5000,0.1909,sell
