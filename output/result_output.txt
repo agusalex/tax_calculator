@@ -1,0 +1,32 @@
+python main.py --input_csv=ibkr_input.csv
+
+5.330205
+Symbol: 941, Price: 5.330205, Units: 1000.0, Taxable Amount: 0.0, AvgMoving Price: 5.3302
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 30.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 28.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 49.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 86.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 24.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.0542016
+Symbol: GPW, Price: 9.0542016, Units: 41.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+9.054201599999999
+Symbol: GPW, Price: 9.0542016, Units: 42.0, Taxable Amount: 0.0, AvgMoving Price: 9.0542
+0.2173722
+Symbol: RE4, Price: 0.2173722, Units: 9000.0, Taxable Amount: 0.0, AvgMoving Price: 0.2174
+Symbol: RE4, Price: 0.22426379999999996, Units: -9000.0, Taxable Amount: 62.02, AvgMoving Price: 0.2174
+0.21831280000000003
+Symbol: RE4, Price: 0.21831280000000003, Units: 10000.0, Taxable Amount: 0.0, AvgMoving Price: 0.2183
+0.19678420238095243
+Symbol: RE4, Price: 0.17721275000000003, Units: 11000.0, Taxable Amount: 0.0, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.1876039, Units: -2100.0, Taxable Amount: -19.28, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.1876039, Units: -1100.0, Taxable Amount: -10.1, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.1876039, Units: -200.0, Taxable Amount: -1.84, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.1876039, Units: -100.0, Taxable Amount: -0.92, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.1876039, Units: -1500.0, Taxable Amount: -13.77, AvgMoving Price: 0.1968
+Symbol: RE4, Price: 0.19094759999999997, Units: -5000.0, Taxable Amount: -29.18, AvgMoving Price: 0.1968
+Total Taxable Gain: -13.06
