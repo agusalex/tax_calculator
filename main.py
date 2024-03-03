@@ -9,9 +9,10 @@ def main(args):
     input_csv = args.input_csv
     df = pd.read_csv(input_csv)
 
-    filtered_stocks, filtered_currency_conversions, filtered_implicit_conversions = filter_convert(df)
+    filtered_stocks, filtered_options, filtered_currency_conversions, filtered_implicit_conversions = filter_convert(df)
 
     stocks = transform_to_standard(filtered_stocks)
+    options = transform_to_standard(filtered_options)
     currency_conversions = transform_to_standard(filtered_currency_conversions)
     implicit_conversions = transform_to_standard(filtered_implicit_conversions)
 
@@ -28,7 +29,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some financial data.')
-    parser.add_argument('--input_csv', type=str, default='ibkr_input.csv', help='Input CSV file name')
+    parser.add_argument('--input_csv', type=str, default='input/2021_ibkr.csv', help='Input CSV file name')
 
     args = parser.parse_args()
     main(args)
