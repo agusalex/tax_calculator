@@ -21,7 +21,8 @@ def filter_convert(df):
                 'price': row['FXRateToBase'],
                 'Symbol': "EUR." + row['CurrencyPrimary'],
                 'SettleDateTarget': row['SettleDateTarget'],
-                'Buy/Sell': row['Buy/Sell']
+                'Buy/Sell': row['Buy/Sell'],
+                'TradeID': row['TradeID']
             }
             implicit_conversions_aux.append(implicit_conversion)
     implicit_conversions = pd.DataFrame(implicit_conversions_aux)
@@ -32,14 +33,15 @@ def filter_convert(df):
 
 
 def transform_to_standard(trades):
-    df_selected = trades[['Symbol', 'Quantity', 'price', 'Buy/Sell', 'SettleDateTarget']]
+    df_selected = trades[['Symbol', 'Quantity', 'price', 'Buy/Sell', 'SettleDateTarget', 'TradeID']]
     # Select and rename the columns
     df_renamed = df_selected.rename(columns={
         'Symbol': 'symbol',
         'Quantity': 'amount',
         'price': 'price',
         'Buy/Sell': 'buy_or_sell',
-        'SettleDateTarget': 'date'
+        'SettleDateTarget': 'date',
+        'TradeID': 'id'
     })
     # Export the new DataFrame to a CSV file
     return df_renamed
