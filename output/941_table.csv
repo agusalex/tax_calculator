@@ -1,2 +1,2 @@
-symbol,amount,price,buy_or_sell,date,Accumulated_Securities,Avg_Moving_Price,Taxable_Amount
-941,1000.0,5.330205,BUY,2021-11-03,1000,5.330205,0.0
+symbol,amount,price,buy_or_sell,date,id,Accumulated_Securities,Avg_Moving_Price,Taxable_Amount
+941,1000.0,5.330205,BUY,2021-11-03,231506748,1000,5.330205,0.0
