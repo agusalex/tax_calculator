@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def calculate_stock_taxable_amount(df):
     # Initialize variables
     symbol_to_accumulated_securities = {}
@@ -54,3 +57,46 @@ def calculate_stock_taxable_amount(df):
         symbol_to_avg_moving_price[symbol] = new_avg_moving_price
 
     return df, taxable_gain_total
+
+
+def calculate_currency_impact(df):
+    currency_impacts = []
+    currency_map = {}  # Store the cumulative total and amounts for calculating MAP
+
+    for i, row in df.iterrows():
+        currency = row['symbol'].split('.')[1]
+        exchange_rate = row['price']
+        transaction_amount = row['amount']
+        transaction_id = row['id']
+
+        # Initialize currency in map if not present
+        if currency not in currency_map:
+            currency_map[currency] = {'total_value': 0, 'total_amount': 0}
+
+        # Calculate the impact based on MAP if available
+        previous_map = currency_map[currency]['total_value'] / max(1, currency_map[currency]['total_amount'])
+        impact = 0
+        if transaction_amount != 0:  # Avoid division by zero
+            if row['buy_or_sell'].upper() == 'BUY':
+                # For buys, impact is negative as it represents a cost
+                impact = -(abs(transaction_amount) * exchange_rate - abs(transaction_amount) * previous_map)
+            else:
+                # For sells, impact is positive as it represents a gain
+                impact = abs(transaction_amount) * exchange_rate - abs(transaction_amount) * previous_map
+
+        # Update the currency map with new total values and amounts for MAP calculation
+        new_total_amount = currency_map[currency]['total_amount'] + abs(transaction_amount)
+        new_total_value = currency_map[currency]['total_value'] + abs(transaction_amount) * exchange_rate
+        currency_map[currency]['total_amount'] = new_total_amount
+        currency_map[currency]['total_value'] = new_total_value
+
+        # Record the transaction impact along with updated MAP
+        new_map = new_total_value / max(1, new_total_amount)  # Avoid division by zero
+        currency_impacts.append({
+            'TransactionID': transaction_id,
+            'Currency': currency,
+            'Impact': impact,
+            'MovingAveragePrice': new_map,
+        })
+
+    return pd.DataFrame(currency_impacts)
