@@ -2,7 +2,7 @@ import argparse
 import pandas as pd
 from ibkr_converter import filter_convert, transform_to_standard
 from taxable_amount import calculate_stock_taxable_amount
-from reports import export_stock_results
+from reports import export_per_symbol, export_singlefile
 
 
 def main(args):
@@ -21,9 +21,10 @@ def main(args):
 
     currency_reports = pd.concat([currency_conversions, implicit_conversions])
 
-    export_stock_results(stocks_report,'/output/')
-    export_stock_results(currency_reports,'/output/explicit/')
-    export_stock_results(implicit_conversions, '/output/implicit/')
+    export_per_symbol(stocks_report, '/output/')
+    export_singlefile(stocks_report, '/output/', 'trades')
+    export_singlefile(currency_reports, '/output/', 'explicit_conversions')
+    export_singlefile(implicit_conversions, '/output/', 'implicit_conversions')
 
 
 if __name__ == "__main__":
